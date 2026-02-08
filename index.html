@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ronald Airon S. Torres | Animated Portfolio</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="Ronald Airon S. Torres - BSIT Student seeking OJT opportunities in software development, web development, and IT. Explore my animated portfolio.">
+  <meta name="keywords" content="BSIT, OJT, Software Developer, Web Developer, Manila, Philippines, Portfolio">
+  <meta name="author" content="Ronald Airon S. Torres">
+
+  <!-- GSAP Core + Plugins -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- Custom Cursor -->
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress"></div>
+
+  <!-- Animated Background Canvas -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="logo">
+        <span class="letter-a">A</span>
+        <span class="letter-r">R</span>
+        <div class="logo-dot"></div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#certificates" class="nav-link">Certificates</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+    <div class="nav-overlay" id="navOverlay"></div>
+  </header>
+
+  <main>
+    <!-- SECTION 1: Landing Page with Glowing Neon Arc -->
+    <section id="home" class="section-snap landing-section" data-bgcolor="#000000" data-textcolor="#f8fafc">
+      <!-- Glowing Corner-to-Corner Curves ("The Lens") -->
+      <svg class="neon-curves" viewBox="0 0 1920 1080" preserveAspectRatio="none">
+        <defs>
+          <!-- Strong Neon Glow Filter -->
+          <filter id="strong-glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur1" />
+            <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur2" />
+            <feGaussianBlur in="SourceGraphic" stdDeviation="30" result="blur3" />
+            <feMerge>
+              <feMergeNode in="blur3" />
+              <feMergeNode in="blur2" />
+              <feMergeNode in="blur1" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        <!-- Desktop Curves (Hidden on Mobile) -->
+        <path class="curve-desktop" d="M 0,0 Q 960,600 1920,0" stroke="#3b82f6" stroke-width="5" fill="none"
+          filter="url(#strong-glow)" />
+        <path class="curve-desktop" d="M 0,1080 Q 960,480 1920,1080" stroke="#3b82f6" stroke-width="5" fill="none"
+          filter="url(#strong-glow)" />
+
+        <!-- Mobile Curves (Visible only on Mobile) -->
+        <path class="curve-mobile" d="M 0,0 Q 960,400 1920,0" stroke="#3b82f6" stroke-width="8" fill="none"
+          filter="url(#strong-glow)" style="display: none;" />
+        <path class="curve-mobile" d="M 0,1080 Q 960,680 1920,1080" stroke="#3b82f6" stroke-width="8" fill="none"
+          filter="url(#strong-glow)" style="display: none;" />
+      </svg>
+
+      <div class="landing-content">
+        <p class="welcome-tag">WELCOME TO MY</p>
+        <h1 class="main-title">
+          <span class="word">Portfolio</span>
+        </h1>
+        <p class="subtitle">Ronald Airon S. Torres</p>
+        <p class="role">BSIT Student | Web Developer</p>
+      </div>
+
+      <!-- Animated Scroll Indicator -->
+      <div class="scroll-indicator">
+        <span class="scroll-text">Scroll Down</span>
+        <div class="scroll-arrow">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: About Me -->
+    <section id="about" class="section-snap about-section" data-bgcolor="#121212" data-textcolor="#f8fafc">
+      <div class="container">
+        <div class="about-modern-layout">
+          <!-- Big Background Watermark -->
+          <div class="section-watermark">ABOUT</div>
+
+          <div class="about-visual-col">
+            <div class="profile-3d-wrapper">
+              <div class="profile-ring-outer"></div>
+              <div class="profile-ring-inner"></div>
+              <div class="profile-image-container circular-3d">
+                <img src="assets/profile.png" alt="Ronald Airon S. Torres" class="profile-img">
+              </div>
+            </div>
+            <!-- Sub-label or tagline that floats near the image -->
+            <div class="visual-tagline">
+              <span class="tag-number">01</span>
+              <span class="tag-text">PASSIONATE DEVELOPER</span>
+            </div>
+          </div>
+
+          <div class="about-content-col">
+            <div class="about-header-modern">
+              <span class="section-subtitle">A bit of context</span>
+              <h2 class="section-title-modern">Driven by <span class="highlight-blue">Design & Logic</span></h2>
+            </div>
+
+            <div class="bio-wrapper">
+              <p class="bio-text">
+                I am a motivated <strong>BSIT student</strong> currently seeking an <strong>On-the-Job Training
+                  (OJT)</strong>
+                opportunity where I can apply and further develop my technical and creative skills. I am particularly
+                interested in combining software development fundamentals with user-centered design to create
+                practical and effective digital solutions.
+              </p>
+              <p class="bio-text secondary">
+                With foundational knowledge in programming, web development, and UI/UX design, along with experience
+                in academic projects, technical documentation, and creative design, I am a fast learner who is
+                committed to building functional, well-structured, and visually organized solutions.
+              </p>
+            </div>
+
+            <div class="stats-row">
+              <div class="stat-box">
+                <span class="stat-val">05+</span>
+                <span class="stat-desc">Projects completed</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-val">10+</span>
+                <span class="stat-desc">Tools mastered</span>
+              </div>
+            </div>
+
+            <div class="about-cta-modern">
+              <a href="#contact" class="btn-premium-blue">Let's Connect</a>
+              <a href="resume.pdf" class="btn-minimal-link" download>Download CV</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Skills -->
+    <section id="skills" class="section-snap skills-section" data-bgcolor="#0a0a0a" data-textcolor="#f8fafc">
+      <!-- Section Watermark -->
+      <div class="section-watermark">SKILLS</div>
+      <div class="container">
+        <h2 class="section-title">
+          <span class="title-line">Core Technical Skills</span>
+        </h2>
+
+        <div class="skills-layout">
+          <!-- Left Side: Skill Overview -->
+          <div class="skills-overview-content">
+            <h3 class="overview-heading">Technical Expertise</h3>
+            <p class="overview-text">
+              I have foundational experience in software and web development, working with programming languages such
+              as <strong>C</strong>, <strong>C++</strong>, <strong>Python</strong>, and <strong>Java</strong>. I have
+              hands-on
+              exposure to web technologies including <strong>React</strong> and <strong>Django</strong>, along with
+              basic database
+              and local server setup using <strong>XAMPP</strong>. I also have strong <strong>UI/UX</strong> and graphic
+              design skills
+              using <strong>Canva</strong>, allowing me to create user-focused and visually organized interfaces.
+              Using <strong>VS Code</strong> and structured workflows, I focus on building functional solutions while
+              maintaining
+              clean design and usability.
+            </p>
+            <div class="overview-highlights">
+              <div class="highlight-item">
+                <span class="highlight-icon">🚀</span>
+                <span>Fast Learner & Adaptive</span>
+              </div>
+              <div class="highlight-item">
+                <span class="highlight-icon">🎨</span>
+                <span>UI/UX & Design Focused</span>
+              </div>
+              <div class="highlight-item">
+                <span class="highlight-icon">�</span>
+                <span>Frontend & Web Developer</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Side: Scattered Bubbles -->
+          <div class="skills-scatter-container" id="bubbleContainer">
+            <!-- Expert -->
+            <div class="skill-item bubble" data-level="expert">
+              <div class="skill-icon-box">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+              </div>
+              <div class="skill-info">
+                <h4>HTML5</h4>
+                <span class="level-badge expert">Expert</span>
+              </div>
+            </div>
+
+            <div class="skill-item bubble" data-level="expert">
+              <div class="skill-icon-box">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+              </div>
+              <div class="skill-info">
+                <h4>CSS3</h4>
+                <span class="level-badge expert">Expert</span>
+              </div>
+            </div>
+
+            <div class="skill-item bubble" data-level="expert">
+              <div class="skill-icon-box">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="SQLite">
+              </div>
+              <div class="skill-info">
+                <h4>SQLite</h4>
+                <span class="level-badge expert">Expert</span>
+              </div>
+            </div>
+
+            <div class="skill-item bubble" data-level="expert">
+              <div class="skill-icon-box">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/canva/canva-original.svg"
+                  alt="Canva">
+              </div>
+              <div class="skill-info">
+                <h4>Canva</h4>
+                <span class="level-badge expert">Expert</span>
+              </div>
+            </div>
+
+            <div class="skill-item bubble" data-level="expert">
+              <div class="skill-icon-box">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code">
+              </div>
+              <div class="skill-info">
+                <h4>VS Code</h4>
+                <span class="level-badge expert">Expert</span>
+              </div>
+            </div>
+
+            <!-- Intermediate -->
+            <div class="skill-item bubble" data-level="intermediate">
+              <div class="skill-icon-box">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                  alt="JavaScript">
+              </div>
+              <div class="skill-info">
+                <h4>JavaScript</h4>
+                <span class="level-badge intermediate">Intermediate</span>
+              </div>
+            </div>
+
+            <div class="skill-item bubble" data-level="intermediate">
+              <div class="skill-icon-box">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+              </div>
+              <div class="skill-info">
+                <h4>MySQL</h4>
+                <span class="level-badge intermediate">Intermediate</span>
+              </div>
+            </div>
+
+            <div class="skill-item bubble" data-level="intermediate">
+              <div class="skill-icon-box">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+              </div>
+              <div class="skill-info">
+                <h4>GitHub</h4>
+                <span class="level-badge intermediate">Intermediate</span>
+              </div>
+            </div>
+
+            <div class="skill-item bubble" data-level="intermediate">
+              <div class="skill-icon-box">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+              </div>
+              <div class="skill-info">
+                <h4>Java</h4>
+                <span class="level-badge intermediate">Intermediate</span>
+              </div>
+            </div>
+
+            <div class="skill-item bubble" data-level="intermediate">
+              <div class="skill-icon-box">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+              </div>
+              <div class="skill-info">
+                <h4>React</h4>
+                <span class="level-badge intermediate">Intermediate</span>
+              </div>
+            </div>
+
+            <div class="skill-item bubble" data-level="intermediate">
+              <div class="skill-icon-box">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django">
+              </div>
+              <div class="skill-info">
+                <h4>Django</h4>
+                <span class="level-badge intermediate">Intermediate</span>
+              </div>
+            </div>
+
+            <div class="skill-item bubble" data-level="intermediate">
+              <div class="skill-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  style="width: 40px; height: 40px;">
+                  <path
+                    d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 22 12 22Z"
+                    fill="#10a37f" />
+                  <path
+                    d="M17.0661 14.8239C17.3881 14.6369 17.5 14.2251 17.313 13.9031L15.313 10.439C15.126 10.117 14.7142 10.0051 14.3922 10.1921C14.0702 10.3791 13.9583 10.7909 14.1453 11.1129L16.1453 14.577C16.3262 14.8929 16.7381 15.011 17.0661 14.8239ZM12 11.2308C12.3314 11.2308 12.6 10.9622 12.6 10.6308V6.36923C12.6 6.03786 12.3314 5.76923 12 5.76923C11.6686 5.76923 11.4 6.03786 11.4 6.36923V10.6308C11.4 10.9622 11.6686 11.2308 12 11.2308Z"
+                    fill="white" />
+                </svg>
+              </div>
+              <div class="skill-info">
+                <h4>AI Tools</h4>
+                <span class="level-badge intermediate">Intermediate</span>
+              </div>
+            </div>
+
+            <!-- Entry Level -->
+            <div class="skill-item bubble" data-level="entry">
+              <div class="skill-icon-box">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP">
+              </div>
+              <div class="skill-info">
+                <h4>PHP</h4>
+                <span class="level-badge entry">Entry Level</span>
+              </div>
+            </div>
+
+            <div class="skill-item bubble" data-level="entry">
+              <div class="skill-icon-box">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+                  alt="Firebase">
+              </div>
+              <div class="skill-info">
+                <h4>Firebase</h4>
+                <span class="level-badge entry">Entry Level</span>
+              </div>
+            </div>
+
+            <div class="skill-item bubble" data-level="entry">
+              <div class="skill-icon-box">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+              </div>
+              <div class="skill-info">
+                <h4>Python</h4>
+                <span class="level-badge entry">Entry Level</span>
+              </div>
+            </div>
+
+            <div class="skill-item bubble" data-level="entry">
+              <div class="skill-icon-box">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg"
+                  alt="Jupyter">
+              </div>
+              <div class="skill-info">
+                <h4>Jupyter</h4>
+                <span class="level-badge entry">Entry Level</span>
+              </div>
+            </div>
+
+            <div class="skill-item bubble" data-level="entry">
+              <div class="skill-icon-box">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg"
+                  alt="Android Studio">
+              </div>
+              <div class="skill-info">
+                <h4>Android Studio</h4>
+                <span class="level-badge entry">Entry Level</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: Projects (Redesigned Split Layout) -->
+    <section id="projects" class="section-snap projects-section" data-bgcolor="#0a0a0a" data-textcolor="#f8fafc">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="title-line">Featured Projects</span>
+        </h2>
+
+        <div class="projects-featured-grid" id="projectsGrid">
+          <!-- Project 1: Cinema Management -->
+          <article class="project-split-card" data-project="1">
+            <div class="project-split-image">
+              <img src="assets/cinema-1.png" alt="Cinema Management System">
+            </div>
+            <div class="project-split-content">
+              <div class="project-tag-line">
+                <span class="p-label">PROJECT</span>
+                <span class="p-title">Cinema Management System</span>
+              </div>
+              <div class="divider-line"></div>
+              <div class="project-author">By Ronald Airon</div>
+              <p class="project-summary">Record management and operational workflows for cinema operations. Built with
+                SQLite and focused on efficient CRUD operations for local businesses.</p>
+              <div class="project-footer">
+                <a href="#" class="project-link">www.rat-dev.com</a>
+                <button class="view-project-btn">View Details</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: Barangay Management -->
+          <article class="project-split-card" data-project="2"
+            onclick="window.open('https://github.com/torresairon44-hue/BarangaySystem2026', '_blank')"
+            style="cursor: pointer;">
+            <div class="project-split-image">
+              <img src="assets/barangay-1.png" alt="Barangay Management System">
+            </div>
+            <div class="project-split-content">
+              <div class="project-tag-line">
+                <span class="p-label">PROJECT</span>
+                <span class="p-title">Barangay Management System</span>
+              </div>
+              <div class="divider-line"></div>
+              <div class="project-author">By Ronald Airon</div>
+              <p class="project-summary">Full data management platform for barangay records. This system architecture
+                project utilizes PHP and MySQL for high-scale data handling.</p>
+              <div class="project-footer">
+                <a href="https://github.com/torresairon44-hue/BarangaySystem2026" target="_blank"
+                  class="project-link">github.com/BarangaySystem2026</a>
+                <button class="view-github-btn">View on GitHub</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: Mobile Apps -->
+          <article class="project-split-card" data-project="3"
+            onclick="window.open('https://github.com/torresairon44-hue/AgriAssistApp', '_blank')"
+            style="cursor: pointer;">
+            <div class="project-split-image">
+              <img src="assets/android-1.png" alt="Android Mobile Apps">
+            </div>
+            <div class="project-split-content">
+              <div class="project-tag-line">
+                <span class="p-label">PROJECT</span>
+                <span class="p-title">Android Mobile Apps</span>
+              </div>
+              <div class="divider-line"></div>
+              <div class="project-author">By Ronald Airon</div>
+              <p class="project-summary">Cloud-connected mobile interfaces with Firebase backend integration. Developed
+                natively for Android to provide seamless user experience.</p>
+              <div class="project-footer">
+                <a href="https://github.com/torresairon44-hue/AgriAssistApp" target="_blank"
+                  class="project-link">github.com/AgriAssistApp</a>
+                <button class="view-github-btn">View on GitHub</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4: Happy Homes -->
+          <article class="project-split-card" data-project="4">
+            <div class="project-split-image">
+              <img src="assets/happyhomes-1.png" alt="Happy Homes Subdivision">
+            </div>
+            <div class="project-split-content">
+              <div class="project-tag-line">
+                <span class="p-label">PROJECT</span>
+                <span class="p-title">Happy Homes Subdivision</span>
+              </div>
+              <div class="divider-line"></div>
+              <div class="project-author">By Ronald Airon</div>
+              <p class="project-summary">Complete web system integrating frontend, backend, and database for residential
+                management. A comprehensive capstone effort.</p>
+              <div class="project-footer">
+                <a href="#" class="project-link">www.happyhomes.site</a>
+                <button class="view-project-btn">View Details</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 5: UI/UX Design -->
+          <article class="project-split-card" data-project="5"
+            onclick="window.open('https://github.com/torresairon44-hue/CodeForgeCompetition', '_blank')"
+            style="cursor: pointer;">
+            <div class="project-split-image">
+              <img src="assets/uiux-1.png" alt="UI/UX Design Projects">
+            </div>
+            <div class="project-split-content">
+              <div class="project-tag-line">
+                <span class="p-label">PROJECT</span>
+                <span class="p-title">UI/UX Design Projects</span>
+              </div>
+              <div class="divider-line"></div>
+              <div class="project-author">By Ronald Airon</div>
+              <p class="project-summary">Award-winning interface designs and user experience prototypes focusing on
+                modern aesthetic and accessibility standards.</p>
+              <div class="project-footer">
+                <a href="https://github.com/torresairon44-hue/CodeForgeCompetition" target="_blank"
+                  class="project-link">github.com/CodeForgeCompetition</a>
+                <button class="view-github-btn">View on GitHub</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 6: Snake Game 2022 -->
+          <article class="project-split-card" data-project="6"
+            onclick="window.open('https://github.com/torresairon44-hue/Snake-Game-2022', '_blank')"
+            style="cursor: pointer;">
+            <div class="project-split-image">
+              <img src="assets/snakes.png" alt="Snake Game 2022 Preview">
+            </div>
+            <div class="project-split-content">
+              <div class="project-tag-line">
+                <span class="p-label">PROJECT</span>
+                <span class="p-title">Snake Game 2022</span>
+              </div>
+              <div class="divider-line"></div>
+              <div class="project-author">By Ronald Airon</div>
+              <p class="project-summary">A classic arcade-style Snake Game implemented in C++ using the graphics.h
+                library. Features smooth gameplay, score tracking, and a nostalgic retro aesthetic.</p>
+              <div class="project-footer">
+                <a href="https://github.com/torresairon44-hue/Snake-Game-2022" target="_blank"
+                  class="project-link">github.com/Snake-Game-2022</a>
+                <button class="view-github-btn">View on GitHub</button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Simplified Pagination -->
+        <div class="project-pagination">
+          <button class="pg-btn pg-num active" data-page="1">1</button>
+          <button class="pg-btn pg-num" data-page="2">2</button>
+          <button class="pg-btn pg-next" id="pgNext">Next <span class="next-arrow">></span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: Certificates -->
+    <section id="certificates" class="section-snap certificates-section" data-bgcolor="#0a0a0a"
+      data-textcolor="#f8fafc">
+      <!-- Section Watermark -->
+      <div class="section-watermark">CERTIFICATES</div>
+
+      <div class="container">
+        <div class="certificates-gallery-header">
+          <span class="section-subtitle">Recognition & Achievements</span>
+          <h2 class="section-title-modern">Validated <span class="highlight-blue">Excellence</span></h2>
+        </div>
+
+        <div class="certificates-grid">
+          <!-- Certificate 1 -->
+          <div class="cert-item" data-cert="1">
+            <div class="cert-frame">
+              <div class="cert-image-wrapper">
+                <img src="assets/uicert.png" alt="UI/UX Award">
+              </div>
+              <div class="cert-content-modern">
+                <span class="cert-badge-premium">COMPETITION WINNER</span>
+                <h3>2nd Place in the UI/UX Design Skills</h3>
+                <p>Excellence in Interface Design</p>
+                <div class="cert-footer">
+                  <button class="view-cert-btn">View Certificate</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certificate 2 -->
+          <div class="cert-item" data-cert="2">
+            <div class="cert-frame">
+              <div class="cert-image-wrapper">
+                <img src="assets/ServiceNow.jpg" alt="ServiceNow">
+              </div>
+              <div class="cert-content-modern">
+                <h3>ServiceNow Fundamentals & Platform Automation</h3>
+                <p>Professional Webinar</p>
+                <div class="cert-footer">
+                  <button class="view-cert-btn">View Certificate</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certificate 3 -->
+          <div class="cert-item" data-cert="3">
+            <div class="cert-frame">
+              <div class="cert-image-wrapper">
+                <img src="assets/GenerativeAI.jpg" alt="Generative AI">
+              </div>
+              <div class="cert-content-modern">
+                <h3>Generative AI in Software Development</h3>
+                <p>Technical Webinar</p>
+                <div class="cert-footer">
+                  <button class="view-cert-btn">View Certificate</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certificate 4 -->
+          <div class="cert-item" data-cert="4">
+            <div class="cert-frame">
+              <div class="cert-image-wrapper">
+                <img src="assets/SecurityPrivacy.jpg" alt="Data Privacy">
+              </div>
+              <div class="cert-content-modern">
+                <h3>Data Privacy & Security Awareness</h3>
+                <p>Technical Webinar</p>
+                <div class="cert-footer">
+                  <button class="view-cert-btn">View Certificate</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certificate 5 -->
+          <div class="cert-item" data-cert="5">
+            <div class="cert-frame">
+              <div class="cert-image-wrapper">
+                <img src="assets/ProjectManagement.jpg" alt="Project Mgmt">
+              </div>
+              <div class="cert-content-modern">
+                <h3>Project Management Methodologies</h3>
+                <p>Professional Webinar</p>
+                <div class="cert-footer">
+                  <button class="view-cert-btn">View Certificate</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certificate 6 -->
+          <div class="cert-item" data-cert="6">
+            <div class="cert-frame">
+              <div class="cert-image-wrapper">
+                <img src="assets/technical.png" alt="Technical Committee Recognition">
+              </div>
+              <div class="cert-content-modern">
+                <h3>Technical Committee Recognition</h3>
+                <p>Professional Achievement</p>
+                <div class="cert-footer">
+                  <button class="view-cert-btn">View Certificate</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certificate 7 -->
+          <div class="cert-item" data-cert="7">
+            <div class="cert-frame">
+              <div class="cert-image-wrapper">
+                <img src="assets/technical1.png" alt="Technical Committee Recognition">
+              </div>
+              <div class="cert-content-modern">
+                <span class="cert-badge-premium">PREMIUM RECOGNITION</span>
+                <h3>Technical Committee Recognition</h3>
+                <p>Awarded for Outstanding Skills</p>
+                <div class="cert-footer">
+                  <button class="view-cert-btn">View Certificate</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: Contact -->
+    <section id="contact" class="section-snap contact-section" data-bgcolor="#000000" data-textcolor="#f8fafc">
+      <!-- Section Watermark -->
+      <div class="section-watermark">CONTACT</div>
+      <div class="container">
+        <h2 class="section-title">
+          <span class="title-line">Get In Touch</span>
+        </h2>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>Let's Connect</h3>
+            <p>Open to OJT opportunities and entry-level software development roles.</p>
+
+            <div class="contact-items">
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=torresairon44@gmail.com" class="contact-item"
+                target="_blank">
+                <div class="contact-icon">📧</div>
+                <div class="contact-details">
+                  <span class="contact-label">Email</span>
+                  <span class="contact-value">torresairon44@gmail.com</span>
+                </div>
+              </a>
+
+              <a href="tel:+639300092838" class="contact-item">
+                <div class="contact-icon">📱</div>
+                <div class="contact-details">
+                  <span class="contact-label">Phone</span>
+                  <span class="contact-value">+63 930 009 2838</span>
+                </div>
+              </a>
+
+              <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div class="contact-details">
+                  <span class="contact-label">Location</span>
+                  <span class="contact-value">Manila, Philippines</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="social-links">
+              <a href="https://github.com/torresairon44-hue" target="_blank" rel="noopener" class="social-link">
+                <span>GitHub</span>
+              </a>
+              <a href="https://linkedin.com/in/torresairon44" target="_blank" rel="noopener" class="social-link">
+                <span>LinkedIn</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-cta">
+            <div class="cta-card">
+              <h3>Ready for Internship</h3>
+              <p>Available for OJT roles in software development, web development, or IT support.</p>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=torresairon44@gmail.com" class="btn-primary"
+                target="_blank">
+                <span>Email Me</span>
+                <svg class="btn-arrow" width="20" height="20" viewBox="0 0 20 20">
+                  <path d="M10 3L17 10L10 17M17 10H3" stroke="currentColor" stroke-width="2" fill="none" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="site-footer">
+        <p>© <span id="year"></span> Ronald Airon S. Torres. Built with GSAP & passion.</p>
+      </footer>
+    </section>
+  </main>
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollTop" class="scroll-top-btn" aria-label="Scroll to top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+      stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 15l-6-6-6 6" />
+    </svg>
+  </button>
+
+  <!-- Lightbox for project images -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">×</button>
+    <img id="lightboxImage" src="" alt="Project preview">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
